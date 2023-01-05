@@ -1,0 +1,11 @@
+.home {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.title {
+    padding: 50px;
+    margin: 0px;
+}
