@@ -1,11 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap');
+
+*{
+    font-family: Montserrat;
+}
+
 .home {
     width: 100vw;
     height: 100vh;
+    padding: 0px;
+    margin: 0px;
     text-align: center;
     font-family: sans-serif;
+    background-color: rgba(255, 193, 70, 0.173);
+}
+
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .title {
     padding: 50px;
     margin: 0px;
 }
+
+.image {
+    margin-top: 100px;
+}
+
+.newCatBtn {
+    width: 200px;
+    font-family: Montserrat;
+    font-weight:500;
+    margin-bottom: 20px;
+    background-color: rgb(211, 162, 36);
+   border-color: rgb(211, 162, 36);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+
