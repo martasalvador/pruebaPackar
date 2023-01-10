@@ -1,45 +1,41 @@
-import { Container, Col, Button } from "react-bootstrap"
 import { useState, useEffect } from 'react'
 import apiService from "../services/api.services"
 import './HomePage.css'
 
 const HomePage = () => {
 
-    const [cat, setCat] = useState([])
-    const [data, setData] = useState()
+    const [cat, setCat] = useState()
     
-
-     const loadData = () => {
-
-        apiService
+    const loadData = () => {
+    apiService
             .getOneCat()
-            .then((cat) => setCat(cat))
-                console.log('Estoy en el servicio de la API')
-                console.log(cat.data[0].url)
+            .then((res) => {
+                setCat(res.data[0].url)
+            }) 
             .catch(err => console.log(err))
      }
-    
-    const handleData = () => [
-        loadData(),
-        setData(cat.data[0].url)
-    ]
+
     useEffect(() => {
-   
-    },[handleData])
+        loadData()
+    }, [])
     
     return (
-        <Container className="home">
+        <div className="home">
             <h1 className="title">Random Cats</h1>
-            <Button className="newCatBtn btn-warning" onClick={() => handleData()}>New Cat</Button>
-            <br></br>
-            {
-                data ?
-                    <img src={cat.data[0].url} alt="cat image" className="image" />
-                    :
-                    <p>Searching...</p>
-             }
+            <button className="newCatBtn" onClick={() => loadData()}><img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" title="gato iconos" /></button>
+            <p>Click me!</p>
             
-        </Container>
+            <br></br>
+          {
+                cat ? 
+                        <img src={cat} alt="random cat" className="image" />
+                    :
+                    <>
+                        <p>Searching...</p>
+                    </>
+             } 
+            
+        </div>
     )
 }
 
